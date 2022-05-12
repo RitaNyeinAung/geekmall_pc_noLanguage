@@ -5,7 +5,7 @@
                 <ul class="l">
                     <li class="l logo">
                         <!-- <img :src="URL + logoPhoto" /> -->
-                        <img src="http://api.geekmall.plus/pc/public/index.php/IntnetInformation/readLogo" />
+                        <img :src="this.$httpConfig.readLogo" />
                     </li>
                     <li class="l category">
                         <img src="../../assets/img/register_text.png" />

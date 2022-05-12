@@ -23,6 +23,7 @@ const config = {
     pcStoreLogo: request + 'IntnetInformation/pcStoreLogo',
     getFavIcon: request + 'IntnetInformation/getFavIcon',
     getLogo: request + 'IntnetInformation/logo',
+    readLogo: request + 'IntnetInformation/readLogo',
     // 公共底部
     commonFloor: request + 'ArticleCategory/categoryLists',
     // 登录注册

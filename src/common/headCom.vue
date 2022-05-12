@@ -6,7 +6,8 @@
                 <div class="top l">
                     <router-link to="/home">
                         <!-- <img class="logo" :src="URL + logo_name" /> -->
-                        <img class="logo" src="http://api.geekmall.plus/pc/public/index.php/IntnetInformation/readLogo" />
+                        <!-- <img class="logo" src="http://api.geekmall.plus/pc/public/index.php/IntnetInformation/readLogo" /> -->
+                        <img class="logo" :src="this.$httpConfig.readLogo" />
                     </router-link>
                     <div class="middle">
                         <div class="inp">

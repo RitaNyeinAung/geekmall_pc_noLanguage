@@ -4,7 +4,7 @@
             <div class="center">
                 <router-link to="home">
                     <!-- <img class="logo l" :src="URL + logo_name" alt=""/> -->
-                    <img class="logo l" src="http://api.geekmall.plus/pc/public/index.php/IntnetInformation/readLogo" alt=""/>
+                    <img class="logo l" :src="this.$httpConfig.readLogo" alt="" />
                 </router-link>
                 <div class="my l">
                     <span>我的商城</span>

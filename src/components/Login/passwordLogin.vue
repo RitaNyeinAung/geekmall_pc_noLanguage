@@ -5,7 +5,7 @@
                 <ul>
                     <li class="l logo" @click="$router.push('home')">
                         <!-- <img class="home" :src="URL + logoPhoto" /> -->
-                        <img class="home" src="http://api.geekmall.plus/pc/public/index.php/IntnetInformation/readLogo" />
+                        <img class="home" :src="this.$httpConfig.readLogo" />
                     </li>
                     <li class="l category">
                         <img src="../../assets/img/login_text.png" />
