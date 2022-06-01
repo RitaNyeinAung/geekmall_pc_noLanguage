@@ -1,5 +1,6 @@
 <template>
 	<div id="Net">
+		<common-header v-on:childToParent="onChildClick"></common-header>
 		<div class="advance">
 			<div class="center">
 				<div class="logo l">
@@ -250,6 +251,9 @@
 						<p class="beside">第四步：供应商签收，供应商签收后，同意退款申请</p>
 						<p class="beside">第五步：退款完成：退款款项将在1个工作日内打款至{{this.$constant.mainTitle}}账户。</p>
 					</div>
+					<div class="checkB">
+						<button @click="checkLogin" class="checkButton">商家入驻申请</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -269,6 +273,8 @@
 				link:sessionStorage.getItem('pcfavicon')         
 			},
 			logoPhoto:'',
+			fromChild: '',
+			user_name: '',
         };
     },
 		head: {
@@ -294,6 +300,7 @@
 				self.headParams.link = sessionStorage.pcfavicon
 				self.$emit('updateHead')
 			}, 3000)
+			this.user_name = sessionStorage.getItem('userName');
 		},
         created(){
 			this.getFootData();
@@ -326,12 +333,27 @@
 						console.log(err);
 					});
 			},
+			onChildClick (value) {
+				this.fromChild = value
+				if(this.fromChild == 'false') {
+					location.reload();
+				}
+			},
 			enter(){
 				this.$router.push("/custom")
 			},
 			goTo(){
 				this.$router.push('/home')
 			},
+			checkLogin(){
+				if(this.user_name == undefined){
+					this.$router.push({
+						name: "passwordLogin"
+					});
+				} else {
+					this.$router.push('/agreement')
+				}
+			}
 		}
 
 	}
@@ -1216,7 +1238,7 @@
 				}
 				.backGoods{
 					width: 100%;
-					height: 238px;
+					height: 270px;
 					border-bottom:1px solid #e4e4e4;
 					margin-top: 20px;
 					.companies{
@@ -1232,6 +1254,21 @@
 						height: 32px;
 						line-height: 32px;
 					}
+				}
+				.checkB {
+					margin: 30px 0;
+					.checkButton {
+					cursor: pointer;
+					width: 130px;
+					height: 40px;
+					border-radius: 4px;
+					text-align: center;
+					line-height: 32px;
+					color: #fff;
+					font-size: 16px;
+					margin-left: 385px;
+					background: #d02629;
+				}
 				}
 			}
 		}

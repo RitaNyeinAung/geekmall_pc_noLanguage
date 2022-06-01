@@ -1852,7 +1852,7 @@ export default {
   .promotion_data {
     float: right;
     margin-top: 9px;
-    margin-right: -315px;
+    margin-right: -292px;
     font-size: 12px;
     .ml5 {
       margin-right: 10px;

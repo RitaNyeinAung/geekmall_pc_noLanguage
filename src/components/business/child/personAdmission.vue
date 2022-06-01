@@ -28,7 +28,7 @@
 			<div class="center">
 				<div class="Box">
 					<img src="../../../assets/img/deng.png" /><span class="spa">注意事项:</span>
-					<span>1:以下所需要上传的电子版资质文件仅支持JPG\GIF\PNG格式图片，大小请控制在1M之内。</span>
+					<span>1:以下所需要上传的电子版资质文件仅支持JPG\JPEG\BMP,请控制在500KB以内。</span>
 					<span>2:如您已经提交开店个人信息，请至--服务中心--<router-link to="/progressLook">查看进度</router-link>--选择--编辑信息--修改内容</span>
 				</div>
 				<div class="show">
@@ -87,7 +87,7 @@
 							<p class="l photos same"><img src="../../../assets/img/photo.png" /></p>
 							<el-alert v-if="tip.tip7" title="请上传正确的身份证正面照" type="error" show-icon :closable="false"></el-alert>
 						</div>
-						<div class="jianyi"> 图片建议使用4：3比例，尺寸建议为1200*900像素jpg、gif、png格式的图片，并且图片大小不可超过2M。</div>
+						<div class="jianyi"> 图片建议使用jpg格式的图片，并且图片大小不可超过500k，请压缩图片。</div>
 						<div class="both">
 							<p class="l"><span class="span">*</span>身份证背面照 :</p>
 							<span class="l photo same">
@@ -99,7 +99,7 @@
 							<p class="l photos same"><img src="../../../assets/img/photo.png" /></p>
 							<el-alert v-if="tip.tip8" title="请上传正确的身份证背面照" type="error" show-icon :closable="false"></el-alert>
 						</div>
-						<div class="jianyi "> 图片建议使用4：3比例，尺寸建议为1200*900像素jpg、gif、png格式的图片，并且图片大小不可超过2M。</div>
+						<div class="jianyi "> 图片建议使用jpg格式的图片，并且图片大小不可超过500k，请压缩图片。</div>
 					</div>
 					<div class="top clear-boot">
 						<h1>打款信息</h1>
@@ -173,8 +173,11 @@
 				bank_account: '',
 				bank_name: '',
 				name: /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/,
+				// imgData: {
+				// 	accept: 'image/gif, image/jpeg, image/png, image/jpg',
+				// },
 				imgData: {
-					accept: 'image/gif, image/jpeg, image/png, image/jpg',
+					accept: 'image/jpg, image/jpeg, image/bmp',
 				},
 				fromChild: '',
 				logoPhoto:'',
@@ -289,6 +292,15 @@
 				let that = this;   
 				let file = e.target.files[0];
 				let type = file.type;
+				const fileSize = file.size < 512000;
+				if(fileSize == false) {
+					if (s == 1) {
+						this.$set(this.tip, 'tip7', true);
+					} else {
+						this.$set(this.tip, 'tip8', true);
+					}
+					return false;
+				}
 				if (this.imgData.accept.indexOf(type) == -1) {
 					if (s == 1) {
 						this.$set(this.tip, 'tip7', true);
