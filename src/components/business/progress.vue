@@ -415,6 +415,7 @@
 				width: 485px;
 				height: 104px;
 				/*line-height: 104px;*/
+				margin-left: 10px;
 				dl {
 					width: 124px;
 					height: 54px;
