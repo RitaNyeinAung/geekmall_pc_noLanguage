@@ -111,13 +111,19 @@
 							<el-input size="small" @change="changeWarning(8)" v-model="alipay_account"></el-input>
 							<el-alert v-if="tip.tip10" title="请填写支付宝账号" type="error" show-icon :closable="false"></el-alert>
 						</p>
-						<p class="three"><span class="span">*</span>开户行 :
+						<!-- <p class="three"><span class="span">*</span>开户行 :
 							<el-input size="small" @change="changeWarning(9)" v-model="bank_name"></el-input>
 							<el-alert v-if="tip.tip11" title="请输入开户行" type="error" show-icon :closable="false"></el-alert>
 						</p>
 						<p class="four"><span class="span">*</span>银行卡号 :
 							<el-input size="small" @change="changeWarning(10)" v-model="bank_account"></el-input>
 							<el-alert v-if="tip.tip12" title="请输入正确的银行卡号" type="error" show-icon :closable="false"></el-alert>
+						</p> -->
+						<p class="three"><span class="span">*</span>开户行 :
+							<el-input size="small" v-model="bank_name"></el-input>
+						</p>
+						<p class="four"><span class="span">*</span>银行卡号 :
+							<el-input size="small" v-model="bank_account"></el-input>
 						</p>
 					</div>
 					<div class="base">
@@ -156,8 +162,8 @@
 					tip8: false,
 					tip9: false,
 					tip10: false,
-					tip11: false,
-					tip12: false
+					// tip11: false,
+					// tip12: false
 				},
 				load1: false,
 				load2: false,
@@ -417,16 +423,16 @@
 							this.$set(this.tip, 'tip10', false);
 						}
 						break;
-					case 9:
-						if (this.bank_name) {
-							this.$set(this.tip, 'tip11', false);
-						}
-						break;
-					case 10:
-						if (this.bank_account.length > 12 && (/^[1-9]\d*$/.test(this.bank_account))) {
-							this.$set(this.tip, 'tip12', false);
-						}
-						break;
+					// case 9:
+					// 	if (this.bank_name) {
+					// 		this.$set(this.tip, 'tip11', false);
+					// 	}
+					// 	break;
+					// case 10:
+					// 	if (this.bank_account.length > 12 && (/^[1-9]\d*$/.test(this.bank_account))) {
+					// 		this.$set(this.tip, 'tip12', false);
+					// 	}
+					// 	break;
 				}
 			},
 			next() {
@@ -461,12 +467,12 @@
 				if (this.alipay_account == '') {
 					this.$set(this.tip, 'tip10', true);
 				}
-				if (this.bank_name == '') {
-					this.$set(this.tip, 'tip11', true);
-				}
-				if (this.bank_account.length < 12 || !(/^[1-9]\d*$/.test(this.bank_account))) {
-					this.$set(this.tip, 'tip12', true);
-				}
+				// if (this.bank_name == '') {
+				// 	this.$set(this.tip, 'tip11', true);
+				// }
+				// if (this.bank_account.length < 12 || !(/^[1-9]\d*$/.test(this.bank_account))) {
+				// 	this.$set(this.tip, 'tip12', true);
+				// }
 				for (const key in this.tip) {
 					if (this.tip[key] == true) {
 						return;
