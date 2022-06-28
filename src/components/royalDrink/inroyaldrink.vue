@@ -1,5 +1,5 @@
 <template>
-    <perfect-scrollbar id="goodID" class="ps">
+    <!-- <perfect-scrollbar id="goodID" class="ps"> -->
         <div class="shopsn_product">
             <common-header v-on:clickEventFunc="onClick1" v-on:apiData="apiData"></common-header>
             <head-com :inroyal="drink"></head-com>
@@ -1276,7 +1276,7 @@
                 {{ fullTitle }}
             </div>
         </div>
-    </perfect-scrollbar>
+    <!-- </perfect-scrollbar> -->
 </template>
 
 <script>
@@ -1300,7 +1300,7 @@ import { Message } from "element-ui";
 import config from "../../httpConfig"
 // require styles
 import 'video.js/dist/video-js.css'
-import { videoPlayer } from 'vue-video-player'
+// import { videoPlayer } from 'vue-video-player'
 
 // $(document).ready(function(){
 //     $("#goodId").height(height);
@@ -1494,7 +1494,7 @@ export default {
             g: 0,
             t: 0,
             fullGift: [], //商品满赠活动
-            reduction: null,
+            reduction: [],
             consultationList: [],
             goodsAttr: [],
             goodCode:'',
@@ -1566,9 +1566,9 @@ export default {
         }
     },
     computed: {
-        player() {
-            return this.$refs.videoPlayer.player
-        },
+        // player() {
+        //     return this.$refs.videoPlayer.player
+        // },
         handleDiscount() {
             return parseInt(this.discountInfo) / 10;
         }
@@ -1592,9 +1592,9 @@ export default {
         // this.$refs.videoPlayer.player.controlBar.progressControl.disable();
         // this.getShopData();
         // this.getGoodsDetails();
-        setTimeout(() => {
-            this.player.muted(false)
-        }, 2000)
+        // setTimeout(() => {
+        //     this.player.muted(false)
+        // }, 2000)
         this.storeID = this.$route.query.id;
         let n = 0;
         let isChange = false;
@@ -1657,7 +1657,7 @@ export default {
     },
     components: {
         popup,
-        videoPlayer
+        // videoPlayer
     },
 
     filters: {
@@ -2237,7 +2237,7 @@ export default {
         handleScan(id, status) {
             new QRCode(this.$refs.qrCodeDiv, {
                 text:
-                    "http://msn.huolian100.com/product/" +
+                    "http://m.geekmall.plus/product/" +
                     id +
                     "/" +
                     status +

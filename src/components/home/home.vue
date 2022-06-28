@@ -439,7 +439,7 @@
             </div> -->
             <div class="box-title flash">
                 <!-- <div class="title">Flash Sale</div> -->
-                <div class="title">首页顺序</div>
+                <div class="title">限时秒杀</div>
                 <a  v-if="seckilData == '' || seckilData == null"></a>
                 <a  v-else @click="detailFlashSale" class="shop_more">VIEW MORE</a>
             </div>
@@ -496,7 +496,7 @@
             </div>
             <div class="Guess-box">
                 <!-- <div class="title">Integral Goods</div> -->
-                <div class="title">秒杀/积分兑换</div>
+                <div class="title">积分兑换</div>
                 <a @click="detailIntegralGoods" class="shop_more">VIEW MORE</a>
             </div>
             <div class="Integralg">
@@ -641,7 +641,7 @@
             </div>
             <div class="Guess-boxx">
                 <!-- <div class="titlee">Guess You Like</div> -->
-                <div class="titlee">猜你喜</div>
+                <div class="titlee">猜你喜欢</div>
                 <!-- <a @click="detailGuessYouLike" class="shop_more">VIEW MORE</a> -->
             </div>
             <div class="Guess-bodyy">
